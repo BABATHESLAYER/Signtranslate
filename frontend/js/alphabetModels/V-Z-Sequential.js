@@ -157,7 +157,7 @@ async function loadModel() {
   // https://raw.githubusercontent.com/Narottam04/SignLanguage/master/frontend/model/asl_numbers_1-9/model.json
   // https://raw.githubusercontent.com/Narottam04/SignLanguage/master/frontend/model/asl_numbers_1-10/model.json
   customModel = await tf.loadLayersModel(
-    "https://raw.githubusercontent.com/Narottam04/SignLanguage/master/frontend/model/asl_alphabets_V-Z/model.json"
+    "https://github.com/guptakritarth/SignLanguage/blob/master/frontend/model/asl_alphabets_V-Z/model.json"
   );
 }
 

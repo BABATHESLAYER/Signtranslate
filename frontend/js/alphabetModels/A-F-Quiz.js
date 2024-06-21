@@ -160,7 +160,7 @@ hands.onResults(onResults);
 function loadAndRunModel() {
   async function loadModel() {
     customModel = await tf.loadLayersModel(
-      "https://raw.githubusercontent.com/Narottam04/SignLanguage/master/frontend/model/asl_alphabets_A-F/model.json"
+      "https://github.com/guptakritarth/SignLanguage/blob/master/frontend/model/asl_alphabets_A-F/model.json"
     );
   }
 
