@@ -83,11 +83,15 @@ Captured using OpenCV and processed for consistency.
 Augmented to enhance robustness under different conditions.
 Split into 80% training and 20% testing to evaluate model performance
 
+<img width="940" height="470" alt="image" src="https://github.com/user-attachments/assets/bf5ddb8b-3b92-4534-975f-f9a6af584748" />
+
  
 Fig. 1. American Sign Language Alphabets
 
 For data acquisition, dependencies like cv2, i.e., OpenCV, os, time, and uuid have been imported. The dependency os is used to help work with file paths. It comes under stand- ard utility modules of Python and provides functions for interacting with the operating systems. With the help of the time module in Python, time can be represented in multi- ple ways in code like objects, numbers, and strings. Apart from representing time, it can be used to measure code efficiency or wait during code execution. Here, it is used to add breaks between the image capturing in order to provide time for hand movements. The uuid library is used in naming the image files. It helps in the generation of random objects of 128 bits as ids providing uniqueness as the ids are generated on the basis of time and computer hardware.
- 
+
+ <img width="774" height="463" alt="image" src="https://github.com/user-attachments/assets/e262aa09-89ab-4785-902d-2783bea4b88b" />
+
 Fig. 2. Showing a Finger and testing detection
 
 
@@ -134,15 +138,22 @@ During the development and testing phases, several challenges were encountered:
 Complex Gestures: Multi-hand gestures and overlapping hand movements were difficult to classify accurately.
 Lighting Conditions: Poor lighting affected the system’s ability to detect hand landmarks.
 Dataset Limitations: The lack of a comprehensive dataset for multiple sign languages (e.g., American Sign Language, Indian Sign Language, British Sign Language) limited the system’s versatility.
+
+
+<img width="949" height="329" alt="image" src="https://github.com/user-attachments/assets/7d378486-266b-48cb-b6ff-e9887cacc24f" />
+
 Fig. 4. Landmarks & Graphs
 
  
 Fig. 4.1 Landmarks
+<img width="449" height="357" alt="image" src="https://github.com/user-attachments/assets/6cd5703b-91f1-4e3f-9e35-b3976ccd16f2" />
+<img width="453" height="360" alt="image" src="https://github.com/user-attachments/assets/1ffba287-0e54-44f1-b4f6-4d1cee4ca9dd" />
 
          
 Fig. 4.2 Graphs
 
 V.	CONCLUSION AND FUTURE SCOPE
+<img width="801" height="450" alt="image" src="https://github.com/user-attachments/assets/25fdc6dd-81a2-456f-ba02-5edc72c998d8" />
 
  
 
