@@ -146,6 +146,7 @@ Fig. 4. Landmarks & Graphs
 
  
 Fig. 4.1 Landmarks
+
 <img width="449" height="357" alt="image" src="https://github.com/user-attachments/assets/6cd5703b-91f1-4e3f-9e35-b3976ccd16f2" />
 <img width="453" height="360" alt="image" src="https://github.com/user-attachments/assets/1ffba287-0e54-44f1-b4f6-4d1cee4ca9dd" />
 
