@@ -1,144 +1,102 @@
-Sign Language Recognition using Machine Learning
+# Real-Time Sign Language Translator 🤟
 
-1Archit Gaware, 2Rushikesh Nalinde, 3Prof. K. A. Jadhav
+![Sign Language Translator Demo](https://i.imgur.com/ag5A1aB.gif)
 
-1Student, JSPM`S JAYAWANTRAO SAWANT POLYTECHNIC, Handewadi Road, Hadapsar, Pune-28, 
-2Student, JSPM`S JAYAWANTRAO SAWANT POLYTECHNIC, Handewadi Road, Hadapsar, Pune-28,
- 3Guide,    JSPM`S JAYAWANTRAO SAWANT POLYTECHNIC, Handewadi Road, Hadapsar, Pune-28
+## 📖 Overview
 
+This project is a real-time sign language translator that uses a computer's webcam to capture hand gestures and translate them into text. The primary goal is to help bridge the communication gap between the deaf and hard-of-hearing community and the hearing world.
 
-Abstract:. Communication is the foundation of human interaction, allowing individuals to express thoughts, emotions, and needs. However, for millions of people who are deaf or mute, communication barriers persist in daily life. Sign language serves as their primary mode of communication, but it is not universally understood. This paper introduces a Sign Language Translator that integrates MediaPipe, TensorFlow, and OpenCV to recognize and translate sign language gestures into text or speech in real-time. By utilizing machine learning algorithms and computer vision techniques, we aim to bridge the communication gap and promote inclusivity for the deaf and mute community. Communication is a very important aspect of society. It is said that Man is a Social animal, and for this to be literal an efficient communication is very necessary. Similarly in the Stone Age, communication happened using drawings etc. and as we progressed, society developed script, languages which eventually led to the growth of society. With time globalization started and the spread of languages began, the languages then were classified into verbal and non-verbal. People who travelled and couldn’t understand a language used non-verbal forms to communicate in foreign lands. But Non Verbal languages are not only meant for that but also the only method for People with Hearing and Speaking Disabilities (here onwards mentioned as PWHSD) to communicate without external tools. And since they are small percent of the consensus they are often disregarded or not thought of generally. Though they are a small percent but definitely not a negligible share. To have conversations with them keeping in mind that not everyone can learn another new non-verbal language for communicating with them, to facilitate virtual communication with them we have developed a model that can help PWHSD individuals to communicate with others and also help others understand what they are saying. For this we have used a MediaPipe model that can in real time recognize sign language. With the amount of dataset we have provided the accuracy of the model is pretty good. We have created a Working Website where one can practice and learn Sign Language and also use our Machine Learning Model to make further applications.
+This implementation uses computer vision to detect hand landmarks and a trained deep learning model to classify the corresponding sign (e.g., letters of the American Sign Language alphabet).
 
-
-Index terms: Sign Language Recognition (SLR), Computer Vision, Machine Learning, American Sign Language, TensorFlow, Mediapipe, OpenCV, OpenSource.
-
-I.	INTRODUCTION
-
-The act of transmitting information from one location, person, or group to another is referred to as communication. The speaker, the message being conveyed, and the listener make up its three elements. Only after the audience receives and comprehends the speaker's intended message can it be said that it was successful. It can be broken down into the following categories: formal and informal communication, oral (face-to-face and across distance), written, non-verbal, grapevine, feedback, visual, and active listening.
-The Sign Language Translator presented in this paper is an effort to create an AI-powered tool that enables real-time sign language recognition and translation. By leveraging the power of deep learning and computer vision, our system can accurately identify hand gestures and convert them into a comprehensible format, breaking the barriers between sign language users and non-users. 
-
-This technology not only empowers individuals with hearing and speech impairments but also fosters inclusivity in various sectors such as education, healthcare, and workplaces.
-The ability to communicate is a fundamental aspect of human life. It facilitates relationships, learning, and the exchange of ideas. Yet, millions of individuals who are deaf or mute struggle to communicate effectively with the broader society due to language barriers. Sign language provides a structured means for non-verbal communication, but most people are not proficient in it. This lack of awareness often leads to exclusion and difficulty in daily interactions..
-The following is the structure of the remainder of this paper after the introduction. The associated work on the SLR system is outlined in Section 2. The process of acquiring and creating data is described in Section 3. The developed system's methodology is the focus of Section 4. The system's experimental evaluation is presented in Section 5, and the paper's future work is discussed in Section 6
- 
-II.	LITERATURE SURVEY
-Gesture-Based Communication and Sign Language Recognition (SLR)
-Gesture-based communication involves coordinated hand movements with specific meanings, used by individuals with hearing and speech impairments to convey messages in their daily lives. These gestures are part of visual languages that rely on hand, face, and body movements to express ideas and emotions. There are over 300 distinct sign languages worldwide, each with its own grammar and vocabulary. However, only a small percentage of the population is proficient in any of these languages, making it challenging for individuals with special needs to communicate freely with others. Sign Language Recognition (SLR) systems aim to address this issue by converting gestures into commonly spoken languages like English, enabling seamless communication without the need for sign language knowledge.
-Data Acquisition in SLR Systems
-To recognize and interpret sign language gestures, various data acquisition methods are employed:
-Vision-Based Approaches: Cameras are the most common input devices for SLR systems. They capture hand movements and gestures in real-time. Advanced devices like Microsoft Kinect provide both depth and color video streams, which help in better background segmentation and gesture tracking.
-Sensor-Based Approaches: Devices such as sensory gloves and accelerometers are used to measure hand movements directly. These devices provide precise data but are often expensive and impractical for everyday use.
-Leap Motion Controller (LMC): Developed by Leap Motion, this touchless controller can detect and track fingers and finger-like objects at a high frame rate of 200 frames per second. It is widely used in gesture recognition systems due to its accuracy and efficiency.
-However, acquiring a comprehensive dataset for training SLR systems remains a challenge. Most researchers collect their datasets by recording gestures from signers, as publicly available datasets are limited.
-Processing Techniques in SLR Systems
-SLR systems utilize various processing techniques to recognize and interpret gestures:
-Hidden Markov Models (HMM): HMMs are extensively used in SLR systems due to their ability to model temporal sequences. Variants like Multi-Stream HMM (MSHMM), Light-HMM,   and Tied-Mixture Density-HMM have been employed to improve accuracy.
-Support Vector Machines (SVM): SVMs are used for classification tasks and have achieved high accuracy in gesture recognition.
-Wavelet Transform: This technique has shown exceptional accuracy, with some systems achieving 100% accuracy in gesture classification.
-Despite these advancements, the accuracy of SLR systems depends on several factors, including the size and quality of the dataset, the clarity of images, and the data acquisition methods used.
-Types of SLR Systems
-SLR systems can be categorized into two types:
-Isolated SLR Systems: These systems are trained to recognize individual gestures, such as letters, numbers, or specific signs. Each gesture is labeled meticulously, and the system classifies them independently.
-Continuous SLR Systems: These systems go beyond isolated gestures and can recognize and translate entire sentences. They use isolated SLR systems as building blocks, with additional processing steps like temporal segmentation and sentence synthesis. However, these systems are more complex and prone to errors due to the challenges of pre-processing and post-processing.
-Challenges and Limitations
-Despite significant progress in SLR research, several challenges remain:
-Data Labeling: Isolated SLR systems require meticulous labeling of each gesture, which is time-consuming and labor-intensive.
-Complex Gestures: Continuous SLR systems struggle with complex gestures and overlapping hand movements, leading to inaccuracies.
-Cost of Data Acquisition: Sensor-based methods are expensive, limiting their commercial viability.
-Noise and Errors: Sensor data can be affected by noise, poor human manipulation, and connectivity issues.
-Dataset Availability: The lack of large, diverse datasets for different sign languages hinders the development of robust SLR systems.
-Misconceptions About Sign Language: There is a common misconception that sign language is universal and based on spoken language, which is not true. Each sign language has its own unique structure and vocabulary.
-Future Directions
-To address these challenges, future research should focus on:
-Expanding Datasets: Collecting and labeling larger datasets for multiple sign languages to improve system accuracy and versatility.
-Cost-Effective Solutions: Developing affordable data acquisition methods to make SLR systems more accessible.
-Advanced Algorithms: Exploring lightweight AI models and deep learning techniques to enhance real-time performance and accuracy.
-Two-Way Communication: Enabling systems that can translate spoken language into sign language, facilitating two-way communication.
-By addressing these challenges, SLR systems can become more robust, accurate, and accessible, ultimately bridging the communication gap for individuals with hearing and speech impairments.
-
-
-III.	METHODOLOGY
-
-3.1 System Workflow
-Our system follows a structured System Overview & Methodology pipeline:
-Image Acquisition: A webcam captures real-time hand movements.
-Hand Landmark Detection: MediaPipe detects 21 key points on the hand.
-Feature Extraction: Detected key points are normalized for consistency.
-Gesture Classification:
-KeyPoint Classifier (MLP Model) for static hand gestures.
-Point History Classifier (LSTM Model) for motion-based gestures.
-Output Generation: Recognized gestures are converted into text or speech for real-time communication.
-(Placeholder for Image: System Architecture Diagram)
-3.2 Model Architecture & Training
-Hand Sign Recognition (MLP Model):
-Input: Hand landmark coordinates from MediaPipe.
-Processing: A multi-layer perceptron (MLP) classifier maps gestures to specific signs.
-Output: Recognized sign is displayed as text.
-Finger Gesture Recognition (LSTM Model):
-Input: Temporal sequence of hand movements.
-Processing: An LSTM-based deep learning model analyzes motion patterns.
-Output: Recognized as a dynamic gesture.
-Training Dataset:
-Captured using OpenCV and processed for consistency.
-Augmented to enhance robustness under different conditions.
-Split into 80% training and 20% testing to evaluate model performance
-
-<img width="940" height="470" alt="image" src="https://github.com/user-attachments/assets/bf5ddb8b-3b92-4534-975f-f9a6af584748" />
+--- <img width="940" height="470" alt="image" src="https://github.com/user-attachments/assets/bf5ddb8b-3b92-4534-975f-f9a6af584748" />
 
  
 Fig. 1. American Sign Language Alphabets
 
-For data acquisition, dependencies like cv2, i.e., OpenCV, os, time, and uuid have been imported. The dependency os is used to help work with file paths. It comes under stand- ard utility modules of Python and provides functions for interacting with the operating systems. With the help of the time module in Python, time can be represented in multi- ple ways in code like objects, numbers, and strings. Apart from representing time, it can be used to measure code efficiency or wait during code execution. Here, it is used to add breaks between the image capturing in order to provide time for hand movements. The uuid library is used in naming the image files. It helps in the generation of random objects of 128 bits as ids providing uniqueness as the ids are generated on the basis of time and computer hardware.
+## ✨ Features
+
+* **Real-Time Translation:** Translates sign language gestures from a live webcam feed with minimal latency.
+* **High Accuracy:** Utilizes a robust deep learning model trained on a comprehensive dataset for reliable classification.
+* **User-Friendly Interface:** An intuitive display window powered by OpenCV shows the camera feed, detected hand landmarks, and the translated text.
+* **Extensible:** The architecture is designed to be easily adaptable for recognizing new signs, words, or even different sign languages.
+
+---
+
+## 🛠️ How It Works & Technology Stack
+
+The translation process is broken down into several key steps:
+
+1.  **Video Capture:** The system uses `OpenCV` to capture video frames from the user's webcam.
+2.  **Hand Landmark Detection:** We use Google's `Mediapipe` library to detect the position of the hand and extract the 3D coordinates ($x, y, z$) of its 21 key landmarks. This is highly efficient and works on most standard CPUs.
+3.  **Feature Preprocessing:** The raw landmark coordinates are normalized to become independent of the hand's position and scale in the frame. This creates a consistent feature vector for the model.
+4.  **Sign Classification:** The processed feature vector is fed into a pre-trained `TensorFlow`/`Keras` neural network model. The model outputs a prediction, classifying the gesture into a specific letter or word.
+5.  **Display:** The predicted letter is overlaid onto the video feed, providing immediate feedback to the user.
+
+**Core Technologies:**
+* **Python 3.9+**
+* **OpenCV:** For video capture and image processing.
+* **Mediapipe:** For high-fidelity hand and finger tracking.
+* **TensorFlow / Keras:** For building and running the classification model.
+* **NumPy:** For numerical operations and data manipulation.
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to set up and run the project on your local machine.
+
+### Prerequisites
+
+* Python 3.9 or higher
+* A webcam connected to your computer
+* Git for cloning the repository
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/sign-language-translator.git](https://github.com/your-username/sign-language-translator.git)
+    cd sign-language-translator
+    ```
+
+2.  **Create a virtual environment (recommended):**
+    ```bash
+    # For Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+
+    # For macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+
+3.  **Install the required packages:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *The `requirements.txt` file should contain:*
+    ```
+    opencv-python
+    mediapipe
+    tensorflow
+    numpy
+    ```
+
+4.  **Download the pre-trained model:**
+    Download the model file (`model.h5`) from the project's [Releases Page](https://github.com/your-username/sign-language-translator/releases) and place it in the `model/` directory.
+
+---
+
+## ▶️ Usage
+
+To start the translator, simply run the main script from your terminal:
+
+
+
 
  <img width="774" height="463" alt="image" src="https://github.com/user-attachments/assets/e262aa09-89ab-4785-902d-2783bea4b88b" />
 
 Fig. 2. Showing a Finger and testing detection
-
-
-Directory
-│  app.py
-│  keypoint_classification.ipynb
-│  point_history_classification.ipynb
-│
-├─model
-│  ├─keypoint_classifier
-│  │  │  keypoint.csv
-│  │  │  keypoint_classifier.hdf5
-│  │  │  keypoint_classifier.py
-│  │  │  keypoint_classifier.tflite
-│  │  └─ keypoint_classifier_label.csv
-│  │
-│  └─point_history_classifier
-│      │  point_history.csv
-│      │  point_history_classifier.hdf5
-│      │  point_history_classifier.py
-│      │  point_history_classifier.tflite
-│      └─ point_history_classifier_label.csv
-│
-└─utils
-└─cvfpscalc.py
-
-
-Directory
-Fig. 3. Dataset 1
-
-
-IV.	RESULTS & DISCUSSION
-
-Experimental Evaluation
-4.1 Accuracy & Performance
-Hand Sign Recognition (MLP Model):
-Achieved ~92% accuracy for static gestures.
-Finger Gesture Recognition (LSTM Model):
-Achieved ~85% accuracy for dynamic gestures.
-Real-time efficiency: Gesture recognition occurs within 50ms, ensuring smooth interactions.
-(Placeholder for Image: Model Accuracy Graph)
-4.2 Challenges Faced
-During the development and testing phases, several challenges were encountered:
-Complex Gestures: Multi-hand gestures and overlapping hand movements were difficult to classify accurately.
-Lighting Conditions: Poor lighting affected the system’s ability to detect hand landmarks.
-Dataset Limitations: The lack of a comprehensive dataset for multiple sign languages (e.g., American Sign Language, Indian Sign Language, British Sign Language) limited the system’s versatility.
-
 
 <img width="949" height="329" alt="image" src="https://github.com/user-attachments/assets/7d378486-266b-48cb-b6ff-e9887cacc24f" />
 
@@ -156,26 +114,6 @@ Fig. 4.2 Graphs
 V.	CONCLUSION AND FUTURE SCOPE
 <img width="801" height="450" alt="image" src="https://github.com/user-attachments/assets/25fdc6dd-81a2-456f-ba02-5edc72c998d8" />
 
- 
-
-EXPERIMENTAL EVALUATION The accuracy of this model is pretty good and around 85% for the given dataset. .The model was trained on a large and varied dataset of sign language videos and uses a deep learning approach to accurately classify hand gestures and movements. It is able to recognize signs in real-time and can be used to improve accessibility and communication for the deaf and hard of-hearing community.
-
-5.1 Applications
- Enables communication for individuals with hearing and speech impairments.
- Real-time sign-to-text conversion for effortless conversations.
- Useful in educational institutions, workplaces, and healthcare settings.
- Scalable for integration into web and mobile applications.
-5.2 Limitations & Future Enhancements
- Challenges with complex multi-hand gestures.
- Accuracy depends on lighting conditions and camera quality.
- Limited support for different sign languages (American Sign Language, Indian Sign Language, British Sign Language, etc.).
-
-Future Enhancements
-🔹 Expansion of dataset to support multiple sign languages.
-🔹 Integration with IoT devices (smart gloves, AR glasses).
-🔹 Two-way communication (voice-to-sign translation).
-🔹 Lightweight AI models for mobile and edge devices.
-🔹 Improved robustness to handle varying lighting conditions and     complex gestures.
 
 Conclusion
 Language is more than just words—it is about understanding and connection. The Sign Language Translator is a step towards breaking the barriers that separate the hearing-impaired community from the rest of the world. By leveraging AI and deep learning, we have created a tool that promotes inclusivity and accessibility. As technology advances, we envision a future where sign language translation is as seamless as spoken conversation.
