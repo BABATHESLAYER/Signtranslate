@@ -1,6 +1,5 @@
 # Real-Time Sign Language Translator 🤟
-
-![Sign Language Translator Demo](https://i.imgur.com/ag5A1aB.gif)
+<img width="801" height="450" alt="image" src="https://github.com/user-attachments/assets/25fdc6dd-81a2-456f-ba02-5edc72c998d8" />
 
 ## 📖 Overview
 
@@ -112,7 +111,7 @@ Fig. 4.1 Landmarks
 Fig. 4.2 Graphs
 
 V.	CONCLUSION AND FUTURE SCOPE
-<img width="801" height="450" alt="image" src="https://github.com/user-attachments/assets/25fdc6dd-81a2-456f-ba02-5edc72c998d8" />
+
 
 
 Conclusion
